@@ -272,7 +272,7 @@ void drawMenu() {
 
     // Info about Original filter
     if (tab_sel == 2 && menu_sel == 0 && config.graphics_filtering == 0) {
-      char *title = "所有与图形相关的选项都不会在原始渲染模式下生效。";
+      char *title = "所有與圖形相關的選項都不會在原始渲染模式下生效。";
       pgf_draw_textf(WINDOW_X + ALIGN_CENTER(WINDOW_WIDTH, vita2d_pgf_text_width(font, FONT_SIZE, title)), FONT_Y_LINE(17), WHITE, FONT_SIZE, title);
     }
   } else {
