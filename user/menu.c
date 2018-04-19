@@ -102,7 +102,7 @@ static MenuEntry settings_entries[] = {
   { "屏幕比例 Y (PS1)",      MENU_ENTRY_TYPE_SCALE,  0, NULL, &config.ps1_screen_scale_y, NULL, 0 },
   { "記憶棒位置",     MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.ms_location, ms_location_options, sizeof(ms_location_options) / sizeof(char **) },
   { "使用 DS3/DS4 控制器",    MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.use_ds3_ds4, no_yes_options, sizeof(no_yes_options) / sizeof(char **) },
-  { "跳過 Adrenaline 啟動 Logo", MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.skip_logo, no_yes_options, sizeof(no_yes_options) / sizeof(char **) },
+  { "跳過啟動 Logo", MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.skip_logo, no_yes_options, sizeof(no_yes_options) / sizeof(char **) },
   { "重置 Adrenaline 設定", MENU_ENTRY_TYPE_CALLBACK, 0, ResetAdrenalineSettings, NULL, NULL, 0 },
 };
 
@@ -124,7 +124,7 @@ static MenuEntry about_entries[] = {
 
 static TabEntry tab_entries[] = {
   { "主菜單", main_entries, sizeof(main_entries) / sizeof(MenuEntry), 1 },
-  { "即時存檔", NULL, 0, 0 },
+  { "即時存儲", NULL, 0, 0 },
   { "設置", settings_entries, sizeof(settings_entries) / sizeof(MenuEntry), 1 },
   { "關於", about_entries, sizeof(about_entries) / sizeof(MenuEntry), 0 },
 };
