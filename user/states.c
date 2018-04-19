@@ -51,15 +51,15 @@ static int rel_pos = 0, base_pos = 0;
 int open_options = 0;
 
 static char *option_entries_new[] = {
-  "Save State",
-  "Cancel",
+  "保存存檔",
+  "取消",
 };
 
 static char *option_entries_exist[] = {
-  "Load State",
-  "Overwrite State",
-  "Delete State",
-  "Cancel",
+  "加載存檔",
+  "重寫存檔",
+  "刪除存檔",
+  "取消",
 };
 
 #define N_OPTION_ENTRIES_NEW (sizeof(option_entries_new) / sizeof(char **))
@@ -281,7 +281,7 @@ void drawStates() {
 
     if (states[base_pos + i].num == -1) {
       vita2d_draw_rectangle(75.0f, FONT_Y_LINE(2 + i * 5) + 3.0f, 240.0f * k, 92.0f, COLOR_ALPHA(GRAY, 0x7F));
-      pgf_draw_textf(250.0f, FONT_Y_LINE(2 + i * 5), WHITE, FONT_SIZE, "New State %d", base_pos + i);
+      pgf_draw_textf(250.0f, FONT_Y_LINE(2 + i * 5), WHITE, FONT_SIZE, "存檔 %d", base_pos + i);
     } else {
       // Screenshot
       if (states[base_pos + i].tex)
