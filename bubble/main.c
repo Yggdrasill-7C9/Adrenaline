@@ -165,7 +165,7 @@ int main() {
 
 	// Safe mode
 	if (sceIoDevctl("ux0:", 0x3001, NULL, 0, NULL, 0) == 0x80010030) {
-		printf("Please enable unsafe homebrew first before using this software.");
+		printf("使用本軟件前，請先啟用不安全自製軟件。");
 		while (1);
 	}
 
@@ -176,8 +176,8 @@ int main() {
 	memset(&stat, 0, sizeof(SceIoStat));
 	if (sceIoGetstat("ux0:app/" ADRENALINE_TITLEID "/flash0", &stat) < 0 &&
 		sceIoGetstat("ux0:app/" ADRENALINE_TITLEID "/661.PBP", &stat) < 0) {
-		printf("The 6.61 firmware has not been installed yet and 661.PBP does not\nexist.\n");
-		printf("Press X to download the PSP 6.61 firmware.\n");
+		printf("6.61 固件尚未安裝，并且6.61固件不存在.\n");
+		printf("按 X 鍵下載 PSP 6.61 固件\n");
 		printf("Press any other button to ignore it (but you need to manually\nput 661.PBP to ux0:app/" ADRENALINE_TITLEID "/661.PBP" ").\n\n");
 
 		while (1) {
@@ -203,7 +203,7 @@ int main() {
 	// Load kernel module
 	res = taiLoadStartKernelModule("ux0:app/" ADRENALINE_TITLEID "/sce_module/adrenaline_kernel.skprx", 0, NULL, 0);
 	if (res < 0) {
-		printf("Could not load adrenaline_kernel.skprx. Please uninstall the old Adrenaline first.");
+		printf("無法加載 adrenaline_kernel.skprx. 請先卸載舊版 Adrenaline.");
 		while (1);
 	}
 
