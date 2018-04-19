@@ -79,31 +79,31 @@ static float flux_colors[] = {
   0.0f, 0.0f, 0.0f, 0.0f  // Black
 };
 
-static char *graphics_options[] = { "Original", "Bilinear", "Sharp bilinear", "Advanced AA", "LCD3x" };
-static char *flux_mode_options[] = { "None", "Yellow", "Blue", "Black" };
-static char *no_yes_options[] = { "No", "Yes" };
-static char *yes_no_options[] = { "Yes", "No" };
+static char *graphics_options[] = { "原始渲染", "雙線性渲染", "夏普雙線性渲染", "Advanced AA", "LCD3x濾鏡" };
+static char *flux_mode_options[] = { "無色", "黃色", "藍色", "黑色" };
+static char *no_yes_options[] = { "否", "是" };
+static char *yes_no_options[] = { "是", "否" };
 static char *ms_location_options[] = { "ux0:pspemu", "ur0:pspemu", "imc0:pspemu", "uma0:pspemu" };
 
 static MenuEntry main_entries[] = {
-  { "Enter Standby Mode",        MENU_ENTRY_TYPE_CALLBACK, 0, EnterStandbyMode, NULL, NULL, 0 },
-  { "Open Official Settings",    MENU_ENTRY_TYPE_CALLBACK, 0, OpenOfficialSettings, NULL, NULL, 0 },
-  { "Exit PspEmu Application",   MENU_ENTRY_TYPE_CALLBACK, 0, ExitPspEmuApplication, NULL, NULL, 0 },
-  { "Exit Adrenaline Menu",      MENU_ENTRY_TYPE_CALLBACK, 0, ExitAdrenalineMenu, NULL, NULL, 0 },
+  { "待機模式",        MENU_ENTRY_TYPE_CALLBACK, 0, EnterStandbyMode, NULL, NULL, 0 },
+  { "官方設定",    MENU_ENTRY_TYPE_CALLBACK, 0, OpenOfficialSettings, NULL, NULL, 0 },
+  { "退出模擬器",   MENU_ENTRY_TYPE_CALLBACK, 0, ExitPspEmuApplication, NULL, NULL, 0 },
+  { "退出Adrenaline菜單",      MENU_ENTRY_TYPE_CALLBACK, 0, ExitAdrenalineMenu, NULL, NULL, 0 },
 };
 
 static MenuEntry settings_entries[] = {
-  { "Graphics Filtering",        MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.graphics_filtering, graphics_options, sizeof(graphics_options) / sizeof(char **) },
-  { "Smooth Graphics",           MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.no_smooth_graphics, yes_no_options, sizeof(yes_no_options) / sizeof(char **) },
-  { "f.lux Filter Color",        MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.flux_mode, flux_mode_options, sizeof(flux_mode_options) / sizeof(char **) },
-  { "Screen Scale X (PSP)",      MENU_ENTRY_TYPE_SCALE,  0, NULL, &config.psp_screen_scale_x, NULL, 0 },
-  { "Screen Scale Y (PSP)",      MENU_ENTRY_TYPE_SCALE,  0, NULL, &config.psp_screen_scale_y, NULL, 0 },
-  { "Screen Scale X (PS1)",      MENU_ENTRY_TYPE_SCALE,  0, NULL, &config.ps1_screen_scale_x, NULL, 0 },
-  { "Screen Scale Y (PS1)",      MENU_ENTRY_TYPE_SCALE,  0, NULL, &config.ps1_screen_scale_y, NULL, 0 },
-  { "Memory Stick Location",     MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.ms_location, ms_location_options, sizeof(ms_location_options) / sizeof(char **) },
-  { "Use DS3/DS4 controller",    MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.use_ds3_ds4, no_yes_options, sizeof(no_yes_options) / sizeof(char **) },
-  { "Skip Adrenaline Boot Logo", MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.skip_logo, no_yes_options, sizeof(no_yes_options) / sizeof(char **) },
-  { "Reset Adrenaline Settings", MENU_ENTRY_TYPE_CALLBACK, 0, ResetAdrenalineSettings, NULL, NULL, 0 },
+  { "圖像濾鏡",        MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.graphics_filtering, graphics_options, sizeof(graphics_options) / sizeof(char **) },
+  { "平滑顯示",           MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.no_smooth_graphics, yes_no_options, sizeof(yes_no_options) / sizeof(char **) },
+  { "f.lux濾鏡顏色",        MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.flux_mode, flux_mode_options, sizeof(flux_mode_options) / sizeof(char **) },
+  { "屏幕比例 X (PSP)",      MENU_ENTRY_TYPE_SCALE,  0, NULL, &config.psp_screen_scale_x, NULL, 0 },
+  { "屏幕比例 Y (PSP)",      MENU_ENTRY_TYPE_SCALE,  0, NULL, &config.psp_screen_scale_y, NULL, 0 },
+  { "屏幕比例 X (PS1)",      MENU_ENTRY_TYPE_SCALE,  0, NULL, &config.ps1_screen_scale_x, NULL, 0 },
+  { "屏幕比例 Y (PS1)",      MENU_ENTRY_TYPE_SCALE,  0, NULL, &config.ps1_screen_scale_y, NULL, 0 },
+  { "記憶棒位置",     MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.ms_location, ms_location_options, sizeof(ms_location_options) / sizeof(char **) },
+  { "使用 DS3/DS4 控制器",    MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.use_ds3_ds4, no_yes_options, sizeof(no_yes_options) / sizeof(char **) },
+  { "跳過 Adrenaline 啟動 Logo", MENU_ENTRY_TYPE_OPTION, 0, NULL, &config.skip_logo, no_yes_options, sizeof(no_yes_options) / sizeof(char **) },
+  { "重置 Adrenaline 設定", MENU_ENTRY_TYPE_CALLBACK, 0, ResetAdrenalineSettings, NULL, NULL, 0 },
 };
 
 static MenuEntry about_entries[] = {
@@ -112,21 +112,21 @@ static MenuEntry about_entries[] = {
 #else
   { "6.61 Adrenaline-" ADRENALINE_VERSION_MAJOR_STR, MENU_ENTRY_TYPE_TEXT, ORANGE, NULL, NULL, NULL, 0 },
 #endif
-  { "by TheFloW", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
+    { "作者: TheFloW", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
+    { "漢化: 小喬周瑜", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
   { "", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
-  { "", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
-  { "Credits", MENU_ENTRY_TYPE_TEXT, ORANGE, NULL, NULL, NULL, 0 },
-  { "Team molecule for HENkaku", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
-  { "frangarcj for graphics filtering", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
-  { "Rinnegatamante for f.lux", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
-  { "xerpi for vita2dlib", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
+  { "致謝", MENU_ENTRY_TYPE_TEXT, ORANGE, NULL, NULL, NULL, 0 },
+        { "HENkaku: molecule小組", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
+        { "圖像濾鏡: frangarcj", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
+        { "f.lux濾鏡: Rinnegatamante", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
+        { "vita2dlib庫 :xerpi", MENU_ENTRY_TYPE_TEXT, WHITE, NULL, NULL, NULL, 0 },
 };
 
 static TabEntry tab_entries[] = {
-  { "Main", main_entries, sizeof(main_entries) / sizeof(MenuEntry), 1 },
-  { "States", NULL, 0, 0 },
-  { "Settings", settings_entries, sizeof(settings_entries) / sizeof(MenuEntry), 1 },
-  { "About", about_entries, sizeof(about_entries) / sizeof(MenuEntry), 0 },
+  { "主菜單", main_entries, sizeof(main_entries) / sizeof(MenuEntry), 1 },
+  { "即時存檔", NULL, 0, 0 },
+  { "設置", settings_entries, sizeof(settings_entries) / sizeof(MenuEntry), 1 },
+  { "關於", about_entries, sizeof(about_entries) / sizeof(MenuEntry), 0 },
 };
 
 #define N_TABS (sizeof(tab_entries) / sizeof(TabEntry))
@@ -220,7 +220,7 @@ void drawMenu() {
 
   // Draw title
   vita2d_draw_rectangle(WINDOW_X, WINDOW_Y, WINDOW_WIDTH, 38.0f, COLOR_ALPHA(GRAY, 0x7F));
-  char *title = "Adrenaline Menu";
+  char *title = "Adrenaline 菜單";
   pgf_draw_textf(WINDOW_X + ALIGN_CENTER(WINDOW_WIDTH, vita2d_pgf_text_width(font, FONT_SIZE, title)), FONT_Y_LINE(0), WHITE, FONT_SIZE, title);
 
   // Draw tabs
@@ -272,7 +272,7 @@ void drawMenu() {
 
     // Info about Original filter
     if (tab_sel == 2 && menu_sel == 0 && config.graphics_filtering == 0) {
-      char *title = "All graphics related options are not taking effect with the Original rendering mode.";
+      char *title = "所有与图形相关的选项都不会在原始渲染模式下生效。";
       pgf_draw_textf(WINDOW_X + ALIGN_CENTER(WINDOW_WIDTH, vita2d_pgf_text_width(font, FONT_SIZE, title)), FONT_Y_LINE(17), WHITE, FONT_SIZE, title);
     }
   } else {
@@ -468,7 +468,7 @@ int AdrenalineDraw(SceSize args, void *argp) {
       vita2d_start_drawing();
       vita2d_clear_screen();
 
-      char *title = "Please wait...";
+      char *title = "保存中...";
       pgf_draw_textf(ALIGN_CENTER(SCREEN_WIDTH, vita2d_pgf_text_width(font, FONT_SIZE, title)), FONT_Y_LINE(8), WHITE, FONT_SIZE, title);
 
       // End drawing
